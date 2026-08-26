@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design system: "field command center".
+  Display: Space Grotesk (geometric, technical, used sparingly for
+  headings/labels — not body copy).
+  Body: Inter (neutral, highly legible at small sizes).
+  Mono: JetBrains Mono (timestamps, IDs, coordinates, status codes
+  — reinforces the operational/dispatch feel).
+  Fonts are loaded via next/font in app/layout.js and exposed here
+  as CSS variables.
+*/
+
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #080b10;
+  color: #edf1f5;
+  font-family: var(--font-body);
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus ring, on top of Tailwind's focus utilities */
+:focus-visible {
+  outline: 2px solid #2fd6c1;
+  outline-offset: 2px;
+}
